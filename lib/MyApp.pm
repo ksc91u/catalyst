@@ -31,7 +31,23 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 
-__PACKAGE__->config( name => 'MyApp' );
+#__PACKAGE__->config( name => 'MyApp' );
+__PACKAGE__->config(
+        name     => 'MyApp',
+        'View::TT' => {
+            # any TT configurations items go here
+			INCLUDE_PATH => [
+              MyApp->path_to( 'root', 'src' ),
+              MyApp->path_to( 'root', 'lib' ),
+            ],
+            TEMPLATE_EXTENSION => '.tt',
+            CATALYST_VAR => 'c',
+            TIMER        => 0,	
+        },
+		#TIMER => 1,
+		#START_TAG => '<?',
+		#END_TAG => '?>',
+    );
 
 # Start the application
 __PACKAGE__->setup();

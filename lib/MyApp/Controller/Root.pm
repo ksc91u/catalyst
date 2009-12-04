@@ -46,7 +46,7 @@ sub translate :Local{
 	my($self, $c) = @_;
 	my $lol = $c->req->body_params->{lol};
 	my $tr=$c->model('Translate')->translate($lol);
-	$result= $tr."<br>Previouse Queries<br>".join "<br>\n",@{ $c->session->{items} };
+	my $result= $tr."<br>Previouse Queries<br>".join "<br>\n",@{ $c->session->{items} };
 	unshift @{ $c->session->{items} }, $tr;
 	$c->stash(
 		lol => $lol,

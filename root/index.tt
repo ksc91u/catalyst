@@ -1,5 +1,6 @@
-[% WRAPPER page.tt title = lol ; END %]
-[% IF result %] <p>[% lol _ ": " _ result %]</p>[% END %]
+<!--[% TAGS php %]--!>
+<? WRAPPER page.tt title = lol ; END ?>
+<? IF result ?> <p><? lol _ ": " _ result ?></p><? END ?>
 <form name="translate" method=POST action="translate">
 <input type="text" name="lol" value="" title="enter a text to translate">
 <input type="submit" value="Translate">
